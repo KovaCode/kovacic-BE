@@ -4,30 +4,30 @@ package main.java.com.example.demo.dto;
  * Created by ashish on 13/5/17.
  */
 public class SkillDto {
-    Integer skillId;
-    String SkillName;
+    Integer ID;
+    String name;
 
-    public SkillDto(Integer skillId, String skillName) {
-        this.skillId = skillId;
-        SkillName = skillName;
+    public SkillDto(Integer id, String name) {
+        this.ID = id;
+        this.name = name;
     }
 
     public SkillDto() {
     }
 
-    public Integer getSkillId() {
-        return skillId;
+    public Integer getID() {
+        return ID;
     }
 
-    public void setSkillId(Integer skillId) {
-        this.skillId = skillId;
+    public void setID(Integer id) {
+        this.ID = id;
     }
 
-    public String getSkillName() {
-        return SkillName;
+    public String getName() {
+        return name;
     }
 
-    public void setSkillName(String skillName) {
-        SkillName = skillName;
+    public void setName(String skillName) {
+        this.name = name;
     }
 }

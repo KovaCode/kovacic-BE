@@ -1,12 +1,13 @@
 package main.java.com.example.demo.service;
 
-import java.util.List;
 import main.java.com.example.demo.dto.UserDto;
 
+import java.util.List;
+
 /**
- * Created by ashish on 13/5/17.
+ * Created by ikovacic
  */
-public interface UserService {
+public interface IUserService {
     UserDto getUserById(Integer userId);
     void saveUser(UserDto userDto);
     List<UserDto> getAllUsers();

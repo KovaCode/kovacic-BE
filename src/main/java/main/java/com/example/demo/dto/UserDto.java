@@ -1,31 +1,35 @@
 package main.java.com.example.demo.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by ashish on 13/5/17.
  */
 public class UserDto {
-    Integer userId;
+    Integer ID;
     String userName;
-    List<SkillDto> skillDtos= new ArrayList<>();
-
-    public UserDto(Integer userId, String userName, List<SkillDto> skillDtos) {
-        this.userId = userId;
-        this.userName = userName;
-        this.skillDtos = skillDtos;
-    }
+    String password;
+    String firstName;
+    String lastName;
+//    List<SkillDto> skillDtos= new ArrayList<>();
 
     public UserDto() {
     }
 
-    public Integer getUserId() {
-        return userId;
+    public UserDto(Integer id, String firstName, String lastName, String userName, String password/*, List<SkillDto> skillDtos*/) {
+        this.ID  = id;
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+//        this.skillDtos = skillDtos;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
     public String getUserName() {
@@ -36,11 +40,36 @@ public class UserDto {
         this.userName = userName;
     }
 
-    public List<SkillDto> getSkillDtos() {
-        return skillDtos;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSkillDtos(List<SkillDto> skillDtos) {
-        this.skillDtos = skillDtos;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+//
+//    public List<SkillDto> getSkillDtos() {
+//        return skillDtos;
+//    }
+//
+//    public void setSkillDtos(List<SkillDto> skillDtos) {
+//        this.skillDtos = skillDtos;
+//    }
 }

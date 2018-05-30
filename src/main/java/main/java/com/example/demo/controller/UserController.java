@@ -1,16 +1,12 @@
 package main.java.com.example.demo.controller;
 
-import java.util.List;
-
 import main.java.com.example.demo.dto.UserDto;
-import main.java.com.example.demo.service.UserService;
+import main.java.com.example.demo.service.IUserService;
 import main.java.com.example.demo.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 /**
  * Created by ashish on 13/5/17.
  */
@@ -18,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 	@Autowired
-    UserService userService;
+	IUserService userService;
 
 	@RequestMapping(Constants.GET_USER_BY_ID)
 	public UserDto getUserById(@PathVariable Integer userId) {
@@ -27,6 +23,7 @@ public class UserController {
 	
 	@RequestMapping(Constants.GET_ALL_USERS)
 	public List<UserDto> getAllUsers() {
+
 		return userService.getAllUsers();
 	}
 	

@@ -7,9 +7,10 @@ import main.java.com.example.demo.entity.Skill;
  * Created by ashish on 13/5/17.
  */
 public class SkillConverter {
+
 	public static Skill dtoToEntity(SkillDto SkillDto) {
-		Skill Skill = new Skill(SkillDto.getSkillName(), null);
-		Skill.setSkillId(SkillDto.getSkillId());
+		Skill Skill = new Skill(SkillDto.getName(), null);
+		Skill.setSkillId(SkillDto.getID());
 		return Skill;
 	}
 
