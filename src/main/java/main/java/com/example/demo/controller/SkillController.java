@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
+/**
+ * Created by ikovacic.
+ */
 @RequestMapping("/skill")
 @RestController
 public class SkillController {

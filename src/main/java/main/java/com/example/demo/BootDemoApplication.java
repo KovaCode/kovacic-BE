@@ -5,16 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+/**
+ * Created by ikovacic.
+ */
 @EntityScan(basePackages = "main.java.com.example.demo.entity")
 @EnableJpaAuditing
 @SpringBootApplication
 public class BootDemoApplication {
-
-//    @Autowired
-//    UserRepository userRepository;
-//
-//    @Autowired
-//    SkillRepository skillRepository;
 
 
     public static void main(String[] args) {

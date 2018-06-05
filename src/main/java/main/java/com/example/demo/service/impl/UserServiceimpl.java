@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by ashish on 13/5/17.
+ * Created by ikovacic.
  */
 @Service
 public class UserServiceimpl implements IUserService {

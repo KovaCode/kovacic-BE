@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ashish on 13/5/17.
+ * Created by ikovacic.
  */
 @Service
 public class SkillServiceimpl implements ISkillService {
@@ -23,9 +23,9 @@ public class SkillServiceimpl implements ISkillService {
     SkillRepository skillRepository;
 
     @Override
-    public ResponseEntity<List<SkillDto>> getSkillByName(String name) {
-        List<Skill> skillList = skillRepository.findByName(name);
-        return new ResponseEntity<>(SkillConverter.entityToDtoList(skillList), HttpStatus.OK);
+    public ResponseEntity<SkillDto> getSkillByName(String name) {
+        Skill skill = skillRepository.findByName(name);
+        return new ResponseEntity<>(SkillConverter.entityToDto(skill), HttpStatus.OK);
     }
 
     @Override

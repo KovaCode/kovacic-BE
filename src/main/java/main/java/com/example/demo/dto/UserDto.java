@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ashish on 13/5/17.
+ * Created by ikovacic.
  */
 public class UserDto {
     private Long ID;
@@ -51,6 +51,17 @@ public class UserDto {
         this.skillDtos = skillDtos;
         this.note = note;
     }
+
+    public UserDto(String firstName, String lastName, String userName, String password, String email, List<SkillDto> skillDtos, String note) {
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.skillDtos = skillDtos;
+        this.note = note;
+    }
+
 
     public UserDto(Long id, String firstName, String lastName, String userName, String password, String email) {
         this.ID = id;

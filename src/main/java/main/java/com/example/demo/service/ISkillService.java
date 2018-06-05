@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface ISkillService {
 
-    ResponseEntity<List<SkillDto>> getSkillByName(String name);
+    ResponseEntity<SkillDto> getSkillByName(String name);
 
     ResponseEntity<SkillDto> getSkillById(Long skillId);
 

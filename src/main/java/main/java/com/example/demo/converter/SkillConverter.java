@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ashish on 13/5/17.
+ * Created by ikovacic.
  */
 public class SkillConverter {
 

@@ -2,6 +2,9 @@ package main.java.com.example.demo.entity;
 
 import javax.persistence.*;
 
+/**
+ * Created by ikovacic.
+ */
 @Entity
 @Table(name = "skill")
 public class Skill  {
@@ -11,13 +14,6 @@ public class Skill  {
     private Long ID;
     @Column(unique = true)
     private String name;
-
-//    @OneToMany(
-//            mappedBy = "user",
-//            cascade = CascadeType.ALL,
-//            orphanRemoval = true
-//    )
-//    private User user;
 
     public Skill() {
     }
@@ -48,11 +44,4 @@ public class Skill  {
         this.name = name;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 }

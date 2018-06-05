@@ -56,24 +56,14 @@ public class User extends AuditModel {
         this.email = email;
     }
 
-    public User(String firstName, String lastName, String userName, String password, String email, List<Skill> skills) {
+    public User(String firstName, String lastName, String userName, String password, String email, List<Skill> skills, String note) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
-//        this.note = null;
         this.skill = skills;
-    }
-
-    public User(String firstName, String lastName, String userName, String password, String email, String note, List<Skill> skills) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
         this.note = note;
-        this.skill = skills;
     }
 
     public Long getID() {

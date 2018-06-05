@@ -6,15 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-
+/**
+ * Created by ikovacic.
+ */
 @Repository
 public interface SkillRepository extends JpaRepository<Skill, Long> {
     @Query("SELECT COUNT(s.ID) FROM Skill s")
     long count();
 
     @Query("SELECT s FROM Skill s WHERE LOWER(s.name) = LOWER(:name)")
-    List<Skill> findByName(@Param("name") String name);
+    Skill findByName(@Param("name") String name);
 
 }

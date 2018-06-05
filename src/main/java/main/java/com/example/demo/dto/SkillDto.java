@@ -1,7 +1,7 @@
 package main.java.com.example.demo.dto;
 
 /**
- * Created by ashish on 13/5/17.
+ * Created by ikovacic.
  */
 public class SkillDto {
     Long ID;
@@ -9,6 +9,10 @@ public class SkillDto {
 
     public SkillDto(Long id, String name) {
         this.ID = id;
+        this.name = name;
+    }
+
+    public SkillDto(String name) {
         this.name = name;
     }
 
