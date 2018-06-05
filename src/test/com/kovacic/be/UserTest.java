@@ -1,6 +1,5 @@
 package com.kovacic.be;
 
-import com.kovacic.be.dto.SkillDto;
 import com.kovacic.be.dto.UserDto;
 import com.kovacic.be.service.ISkillService;
 import com.kovacic.be.service.IUserService;
@@ -15,15 +14,14 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:application.properties")
 public class UserTest extends AbstractTestNGSpringContextTests {
-    private final String skillName = "Hibernate";
-    private final String skillNameUpdate = "Java/Hibernate/JPA";
+
+    private String skillName = "Automation Testing";
+    private String email = "test@tester.com";
 
     @Autowired
     private IUserService userService;
@@ -32,31 +30,40 @@ public class UserTest extends AbstractTestNGSpringContextTests {
     private ISkillService skillService;
 
 
+//    @BeforeClass
+//    public void testSetup(){
+//        skillService.saveSkill(new SkillDto(skillName)).getBody();
+//    }
+//
+//    @AfterClass
+//    public void testTearDown(){
+//        skillService.deleteSkill(skillService.getSkillByName(skillName).getBody());
+//    }
 
-    @Test
-    public void testCreateUser(){
 
-        skillService.saveSkill(new SkillDto("Testing"));
-
-        List<SkillDto> listSkills = skillService.getSkills().getBody();
+    @Test(priority = 10)
+    public void testCreateUser() {
+//        SkillDto skillDto = skillService.getSkillByName(skillName).getBody();
 
         UserDto user = new UserDto();
         user.setFirstName("Testing");
         user.setLastName("Tester");
         user.setUserName("Test101");
         user.setPassword("Test@101.");
-        user.setEmail("test@tester.com");
+        user.setEmail(email);
         user.setNote("notifications");
-        user.setSkillDtos(listSkills);
+        user.setSkillDtos(skillService.getSkills().getBody());
 
-        System.err.println(user);
-        System.err.println(user.getSkillDtos());
-
-
-
-        ResponseEntity<UserDto> response =  userService.saveUser(user);
+        ResponseEntity<UserDto> response = userService.saveUser(user);
         Assert.assertEquals(response.getStatusCode(), HttpStatus.ACCEPTED);
 
+    }
+
+    @Test(priority = 20)
+    public void testDeleteUser() {
+        UserDto userDto = userService.getUserByEmail(email).getBody();
+        ResponseEntity<UserDto> response = userService.deleteUser(userDto);
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.ACCEPTED);
     }
 
 

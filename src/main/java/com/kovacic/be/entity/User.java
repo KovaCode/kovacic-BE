@@ -40,7 +40,7 @@ public class User extends AuditModel {
 
     @JoinColumn(name = "user_id")
     @ManyToMany(
-            cascade = CascadeType.DETACH,
+            cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     private List<Skill> skill;
 

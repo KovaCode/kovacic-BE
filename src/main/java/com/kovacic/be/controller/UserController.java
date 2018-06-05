@@ -17,7 +17,7 @@ import java.util.List;
 public class UserController {
 
 	@Autowired
-	IUserService userService;
+	private IUserService userService;
 
 	@RequestMapping(Constants.GET_USER_BY_ID)
 	public ResponseEntity<UserDto> getUserById(@PathVariable Long userId) {

@@ -17,7 +17,7 @@ import java.util.List;
 public class SkillController {
 
 	@Autowired
-	ISkillService skillService;
+	private ISkillService skillService;
 
 	@RequestMapping(Constants.GET_SKILL_BY_ID)
 	public ResponseEntity<SkillDto> getSkillById(@PathVariable Long skillId) {
