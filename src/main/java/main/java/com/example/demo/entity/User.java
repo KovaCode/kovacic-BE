@@ -1,56 +1,86 @@
 package main.java.com.example.demo.entity;
 
+import main.java.com.example.demo.entity.base.AuditModel;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by ikovacic.
  */
 @Entity
-public class User implements Serializable {
-    private static final long serialVersionUID = 0x62A6DA99AABDA8A8L;
-
+@Table(name = "user")
+@DynamicInsert()
+@DynamicUpdate()
+public class User extends AuditModel {
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    private Integer ID;
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
+
+    @Column(nullable = false, length = 50, unique = true)
     private String userName;
-    @Column
+
+    @Column(nullable = false, length = 50)
     private String password;
-    @Column
+
+    @Column(nullable = false, length = 100)
     private String firstName;
-    @Column
+
+    @Column(nullable = false, length = 100)
     private String lastName;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Skill> skills = new LinkedList<>();
+    @Column(nullable = false, length = 150, unique = true)
+    private String email;
 
-    public User(){
+    @Column(nullable = true, length = 500)
+    private String note;
+
+    @JoinColumn(name = "user_id")
+    @ManyToMany(
+            cascade = CascadeType.DETACH,
+            fetch = FetchType.EAGER)
+    private List<Skill> skill;
+
+    public User() {
     }
 
 
-    public User(String firstName, String lastName, String userName, String password) {
+    public User(String firstName, String lastName, String userName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
+        this.email = email;
     }
 
-    public User(String firstName, String lastName, String userName, String password, List<Skill> skills) {
+    public User(String firstName, String lastName, String userName, String password, String email, List<Skill> skills) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
-//        this.skills = skills;
+        this.email = email;
+//        this.note = null;
+        this.skill = skills;
     }
 
-    public Integer getID() {
+    public User(String firstName, String lastName, String userName, String password, String email, String note, List<Skill> skills) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.note = note;
+        this.skill = skills;
+    }
+
+    public Long getID() {
         return ID;
     }
 
-    public void setID(Integer id) {
+    public void setID(Long id) {
         this.ID = id;
     }
 
@@ -86,13 +116,29 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-//    public List<Skill> getSkills() {
-//        return skills;
-//    }
-//
-//    public void setSkills(List<Skill> skills) {
-//        this.skills = skills;
-//    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public List<Skill> getSkills() {
+        return skill;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skill = skills;
+    }
 
 
 }

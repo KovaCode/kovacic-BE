@@ -1,34 +1,75 @@
 package main.java.com.example.demo.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ashish on 13/5/17.
  */
 public class UserDto {
-    Integer ID;
-    String userName;
-    String password;
-    String firstName;
-    String lastName;
-//    List<SkillDto> skillDtos= new ArrayList<>();
+    private Long ID;
+    private String userName;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private List<SkillDto> skillDtos = new ArrayList<>();
+    private String note;
 
     public UserDto() {
     }
 
-    public UserDto(Integer id, String firstName, String lastName, String userName, String password/*, List<SkillDto> skillDtos*/) {
-        this.ID  = id;
+    public UserDto(Long id, String firstName, String lastName, String userName, String password, String email, String note) {
+        this.ID = id;
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-
-//        this.skillDtos = skillDtos;
+        this.email = email;
+        this.skillDtos = null;
+        this.note = note;
     }
 
-    public Integer getID() {
+    public UserDto(Long id, String firstName, String lastName, String userName, String password, String email, List<SkillDto> skillDtos) {
+        this.ID = id;
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.skillDtos = skillDtos;
+//        this.note = null;
+    }
+
+    public UserDto(Long id, String firstName, String lastName, String userName, String password, String email, List<SkillDto> skillDtos, String note) {
+        this.ID = id;
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.skillDtos = skillDtos;
+        this.note = note;
+    }
+
+    public UserDto(Long id, String firstName, String lastName, String userName, String password, String email) {
+        this.ID = id;
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.skillDtos = null;
+//        this.note = null;
+    }
+
+
+
+    public Long getID() {
         return ID;
     }
 
-    public void setID(Integer ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 
@@ -64,12 +105,28 @@ public class UserDto {
         this.lastName = lastName;
     }
 
-//
-//    public List<SkillDto> getSkillDtos() {
-//        return skillDtos;
-//    }
-//
-//    public void setSkillDtos(List<SkillDto> skillDtos) {
-//        this.skillDtos = skillDtos;
-//    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    public List<SkillDto> getSkillDtos() {
+        return skillDtos;
+    }
+
+    public void setSkillDtos(List<SkillDto> skillDtos) {
+        this.skillDtos = skillDtos;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 }
